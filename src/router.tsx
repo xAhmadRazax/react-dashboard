@@ -1,19 +1,21 @@
 import { createBrowserRouter } from "react-router"
 import { Layout } from "./pages/Layout"
-import { AddNewUser } from "./features/dashboard/AddNewUser"
+import { Dashboard } from "./pages/Dashboard"
 import { UpdateUser } from "./features/dashboard/updateUser"
 
 export const router = createBrowserRouter([
   {
-    index: true,
+    path: "/",
     element: <Layout />,
-  },
-  {
-    path: "/add-user",
-    element: <AddNewUser />,
-  },
-  {
-    path: "/update-user/:id",
-    element: <UpdateUser />,
+    children: [
+      {
+        index: true,
+        element: <Dashboard />,
+      },
+      {
+        path: "/update-user/:id",
+        element: <UpdateUser />,
+      },
+    ],
   },
 ])

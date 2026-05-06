@@ -1,23 +1,21 @@
-import { Link } from "react-router"
-import { Dashboard } from "./Dashboard"
+import { Outlet } from "react-router"
+import { SideBar } from "@/components/Sidebar"
 
 export const Layout = () => {
   return (
-    <main className="min-h-screen bg-neutral-700">
-      <section className="mx-auto max-w-350">
-        <header className="py-4 text-center">
-          <h1 className="text-2xl text-neutral-50">MOCK DASHBOARD</h1>
-        </header>
+    <div className="grid min-h-screen gap-4 bg-zinc-900 md:grid-cols-[250px_1fr]">
+      <SideBar />
 
-        <Link
-          className="mx-auto mb-2 inline-block rounded bg-green-500 px-2 py-1"
-          to={"add-user"}
-        >
-          Add new User
-        </Link>
-        <div className="mx-auto -mt-2 h-0.5 w-1/12 bg-neutral-400"></div>
-        <Dashboard />
-      </section>
-    </main>
+      <main className="h-full">
+        <section className="mx-auto max-w-350">
+          <header className="py-4 text-center">
+            <h1 className="text-2xl text-zinc-100">MOCK DASHBOARD</h1>
+          </header>
+          <div className="mx-auto -mt-2 h-1 w-1/12 rounded-full bg-zinc-400"></div>
+
+          <Outlet />
+        </section>
+      </main>
+    </div>
   )
 }

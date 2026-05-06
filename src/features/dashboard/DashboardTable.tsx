@@ -1,5 +1,5 @@
 import { TableHead, TableHeader, TableRow, Table } from "@/components/ui/table"
-import { DashboardTableBody } from "./DashboardTableBody"
+// import { DashboardTableBody } from "./DashboardTableBody"
 
 export const DashboardTable = () => {
   return (
@@ -15,7 +15,7 @@ export const DashboardTable = () => {
           <TableHead>Delete </TableHead>
         </TableRow>
       </TableHeader>
-      <DashboardTableBody />
+      {/* <DashboardTableBody /> */}
     </Table>
   )
 }
