@@ -1,17 +1,44 @@
 import { BASEURL } from "@/constants/constants"
-import type { DashboardRowType, NewUserType } from "@/types/dashboardTypes"
+import type { addUserDTO, UserType } from "@/types/dashboard.types"
+import type { PaginationMeta } from "@/types/pagination.types"
 
-export const getDashboardData = async (): Promise<DashboardRowType[]> => {
+export const getUsers = async ({
+  page = 1,
+  itemsPerPage = 10,
+  order = "desc",
+  sortBy = "id",
+}: {
+  page?: number
+  itemsPerPage?: number
+  order?: "asc" | "desc"
+  sortBy?: string
+} = {}): Promise<{ data: UserType[]; meta: PaginationMeta }> => {
   try {
-    const res = await fetch(BASEURL, {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-    })
+    const sortString = order === "desc" ? `-${sortBy}` : sortBy
+
+    console.log(sortString)
+    const res = await fetch(
+      `${BASEURL}?_page=${page}&_per_page=${itemsPerPage}&_sort=${sortString}`,
+      {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      }
+    )
     if (!res.ok) {
       throw new Error("Failed to fetch data")
     }
     const result = await res.json()
-    return result
+
+    const meta: PaginationMeta = {
+      items: result.items,
+      next: result.next,
+      pages: result.pages,
+      prev: result.prev,
+    }
+
+    console.log(result)
+
+    return { data: result.data, meta: meta }
   } catch (err: unknown) {
     throw new Error(
       err instanceof Error
@@ -21,7 +48,7 @@ export const getDashboardData = async (): Promise<DashboardRowType[]> => {
   }
 }
 
-export const getUser = async (id: string): Promise<DashboardRowType> => {
+export const getUser = async (id: string): Promise<UserType> => {
   try {
     const res = await fetch(`${BASEURL}/${id}`, {
       method: "GET",
@@ -41,7 +68,7 @@ export const getUser = async (id: string): Promise<DashboardRowType> => {
   }
 }
 
-export const addNewUser = async (body: NewUserType) => {
+export const addUser = async (body: addUserDTO) => {
   try {
     const res = await fetch(BASEURL, {
       method: "POST",
@@ -62,7 +89,7 @@ export const addNewUser = async (body: NewUserType) => {
   }
 }
 
-export const updateUser = async (id: string, body: Partial<NewUserType>) => {
+export const updateUser = async (id: string, body: Partial<UserType>) => {
   try {
     // remove undefined fields inline
     const cleanBody = Object.fromEntries(
@@ -101,6 +128,7 @@ export const deleteUser = async (id: string) => {
 
     return res
   } catch (err: unknown) {
+    console.log(err)
     throw new Error(
       err instanceof Error
         ? `deleting user failed: ${err.message}`

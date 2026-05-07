@@ -3,7 +3,7 @@ import { SidebarLink } from "./SidebarLink"
 
 export const SideBar = () => {
   return (
-    <nav className="h-full border-r px-4 pt-4">
+    <nav className="hidden h-full border-r px-4 pt-4 md:block">
       <div className="sticky top-4">
         <Link to={"/"} className="mb-2 block w-fit text-xl font-bold">
           React Dashboard

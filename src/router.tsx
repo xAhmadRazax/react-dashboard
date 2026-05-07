@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router"
 import { Layout } from "./pages/Layout"
 import { Dashboard } from "./pages/Dashboard"
-import { UpdateUser } from "./features/dashboard/updateUser"
+import { UpdateUser } from "./features/dashboard/UpdateUserForm"
 
 export const router = createBrowserRouter([
   {

@@ -1,67 +1,26 @@
 import { TableBody, TableCell, TableRow } from "@/components/ui/table"
-import { getDashboardData } from "@/lib/api"
-import type { DashboardRowType } from "@/types/dashboardTypes"
-import { useEffect, useState } from "react"
+import { Suspense } from "react"
 import { DashboardTableRow } from "./DashboardTableRow"
+import { useUsers } from "./hooks/useUsers"
 
 export const DashboardTableBody = () => {
-  const [data, setData] = useState<DashboardRowType[]>([])
-  const [error, setError] = useState<string | null>(null)
-  const [isLoading, setIsLoading] = useState(false)
+  const { data } = useUsers()
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        console.log("?????")
-        setIsLoading(true)
-        const res = await getDashboardData()
-        if (res.length > 0) {
-          setData(res)
-        }
-      } catch (error: unknown) {
-        setError(
-          error instanceof Error ? error?.message : "something went wrong"
-        )
-      } finally {
-        setIsLoading(false)
-      }
-    }
-
-    fetchData()
-  }, [])
+  const users = data.data || []
 
   return (
     <TableBody>
-      {/* handing errors */}
-      {error && (
-        <TableRow>
-          <TableCell colSpan={2} className="py-10 text-center">
-            <div className="text-muted-foreground">
-              {error ?? "something went wrong"}
-            </div>
-          </TableCell>
-        </TableRow>
-      )}
-
-      {/*  handlings loadings */}
-
-      {isLoading && !data && (
-        <TableRow>
-          <TableCell colSpan={2} className="py-10 text-center">
-            <div className="text-muted-foreground">Loading Data ...</div>
-          </TableCell>
-        </TableRow>
-      )}
-
-      {data.length > 0 ? (
-        data.map((row) => <DashboardTableRow key={row.id} {...row} />)
-      ) : (
-        <TableRow>
-          <TableCell colSpan={2} className="py-10 text-center">
-            <div className="text-muted-foreground">No users found</div>
-          </TableCell>
-        </TableRow>
-      )}
+      <Suspense fallback={<div className="p-10 text-center">Loading...</div>}>
+        {users.length > 0 ? (
+          users.map((row) => <DashboardTableRow key={row.id} {...row} />)
+        ) : (
+          <TableRow>
+            <TableCell colSpan={7} className="py-10 text-center">
+              <div className="text-muted-foreground">No users found</div>
+            </TableCell>
+          </TableRow>
+        )}
+      </Suspense>
     </TableBody>
   )
 }

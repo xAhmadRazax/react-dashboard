@@ -1,4 +1,4 @@
-export interface DashboardRowType {
+export interface UserType {
   id: string
   name: string
   email: string
@@ -7,7 +7,7 @@ export interface DashboardRowType {
   lastLoginAt: string
 }
 
-export interface NewUserType {
+export interface addUserDTO {
   name: string
   email: string
   age: number

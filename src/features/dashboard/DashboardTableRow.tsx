@@ -16,7 +16,7 @@ export const DashboardTableRow = (props: DashboardTableRowProps) => {
   const navigate = useNavigate()
   return (
     <TableRow>
-      <TableCell>{props.email}</TableCell>
+      <TableCell className="ps-4">{props.email}</TableCell>
       <TableCell className="">{props.name}</TableCell>
       <TableCell>{props.age}</TableCell>
       <TableCell>{props.isVerified ? "Yes" : "No"}</TableCell>
@@ -29,7 +29,7 @@ export const DashboardTableRow = (props: DashboardTableRowProps) => {
           Update
         </Button>
       </TableCell>
-      <TableCell>
+      <TableCell className="pe-4">
         <Button onClick={() => deleteUser(props.id)} className="bg-destructive">
           Delete
         </Button>
