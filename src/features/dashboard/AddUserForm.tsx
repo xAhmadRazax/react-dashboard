@@ -1,7 +1,7 @@
 import { DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { FormField } from "@/components/form/FormField"
 import { SubmitButton } from "@/components/form/SubmitButton"
-import { useAddUser } from "./hooks/useAddUser"
+import { useCreateUserMutation } from "./hooks/useCreateUserMutation"
 import { useQueryClient } from "@tanstack/react-query"
 
 interface AddUserFormProps {
@@ -9,7 +9,7 @@ interface AddUserFormProps {
 }
 
 export const AddUserForm = ({ onSuccess }: AddUserFormProps) => {
-  const { AddUserHandler, isLoading, error } = useAddUser()
+  const { createUserMutation, isLoading } = useCreateUserMutation()
   const queryClient = useQueryClient()
 
   const onSubmitHandler = async (e: React.SubmitEvent<HTMLFormElement>) => {
@@ -19,24 +19,23 @@ export const AddUserForm = ({ onSuccess }: AddUserFormProps) => {
     const email = formData.get("email") as string
     const age = formData.get("age") as string
 
-    AddUserHandler(
+    createUserMutation(
       { name, email, age: +age },
       {
         onSuccess: () => {
-          // TODO: reinvalidate users query
           queryClient.invalidateQueries({ queryKey: ["users"] })
           onSuccess()
         },
       }
     )
-
-    console.log(error)
   }
 
   return (
     <>
       <DialogHeader className="text-center">
-        <DialogTitle className="mb-2 text-xl">Add New User</DialogTitle>
+        <DialogTitle className="mb-2 text-xl text-primary">
+          Add New User
+        </DialogTitle>
       </DialogHeader>
 
       <form onSubmit={onSubmitHandler} className="flex flex-col gap-4">

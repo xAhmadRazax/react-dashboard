@@ -1,7 +1,6 @@
-import { Button } from "@/components/ui/button"
 import { TableCell, TableRow } from "@/components/ui/table"
-import { deleteUser } from "@/lib/api"
-import { useNavigate } from "react-router"
+import { UpdateUserButton } from "./UpdateUserButton"
+import { DeleteUserButton } from "./DeleteUserButton"
 
 interface DashboardTableRowProps {
   id: string
@@ -12,27 +11,41 @@ interface DashboardTableRowProps {
   lastLoginAt: string
 }
 
-export const DashboardTableRow = (props: DashboardTableRowProps) => {
-  const navigate = useNavigate()
+export const DashboardTableRow = ({
+  id,
+  name,
+  email,
+  age,
+  isVerified,
+  lastLoginAt,
+}: DashboardTableRowProps) => {
   return (
-    <TableRow>
-      <TableCell className="ps-4">{props.email}</TableCell>
-      <TableCell className="">{props.name}</TableCell>
-      <TableCell>{props.age}</TableCell>
-      <TableCell>{props.isVerified ? "Yes" : "No"}</TableCell>
-      <TableCell>{props.lastLoginAt}</TableCell>
+    <TableRow className="transition-colors hover:bg-muted/40">
+      <TableCell className="ps-4 font-medium">{email}</TableCell>
+
+      <TableCell>{name}</TableCell>
+
+      <TableCell>{age}</TableCell>
+
       <TableCell>
-        <Button
-          onClick={() => navigate(`/update-user/${props.id}`)}
-          className=""
+        <span
+          className={
+            isVerified
+              ? "text-green-600 dark:text-green-400"
+              : "text-muted-foreground"
+          }
         >
-          Update
-        </Button>
+          {isVerified ? "Verified" : "Pending"}
+        </span>
       </TableCell>
+
+      <TableCell className="text-muted-foreground">{lastLoginAt}</TableCell>
+
       <TableCell className="pe-4">
-        <Button onClick={() => deleteUser(props.id)} className="bg-destructive">
-          Delete
-        </Button>
+        <div className="flex justify-end gap-2">
+          <UpdateUserButton id={id} />
+          <DeleteUserButton id={id} />
+        </div>
       </TableCell>
     </TableRow>
   )

@@ -5,6 +5,30 @@
       "email": "AhmadRaza@hotmail.com",
       "age": 29,
       "id": "bPbzpqH6tS8"
+    },
+    {
+      "name": "Gintoki Sakata",
+      "email": "Azir.sakata789@gmail.com",
+      "age": 232,
+      "id": "Cy6DDREyUrY"
+    },
+    {
+      "name": "asda",
+      "email": "gintoki.sakata789@gmail.com",
+      "age": 22,
+      "id": "SiQU6CyzrXo"
+    },
+    {
+      "name": "asdasd",
+      "email": "gintoki.sakata789@gmail.com",
+      "age": 2222,
+      "id": "wgOqIVU4VAk"
+    },
+    {
+      "name": "asasd",
+      "email": "gintoki.sakata789@gmail.com",
+      "age": 222,
+      "id": "TNt5dXwtBgQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

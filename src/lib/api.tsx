@@ -1,6 +1,7 @@
 import { BASEURL } from "@/constants/constants"
 import type { addUserDTO, UserType } from "@/types/dashboard.types"
 import type { PaginationMeta } from "@/types/pagination.types"
+import { sleep } from "./utils"
 
 export const getUsers = async ({
   page = 1,
@@ -14,6 +15,7 @@ export const getUsers = async ({
   sortBy?: string
 } = {}): Promise<{ data: UserType[]; meta: PaginationMeta }> => {
   try {
+    await sleep(5000)
     const sortString = order === "desc" ? `-${sortBy}` : sortBy
 
     console.log(sortString)
@@ -50,6 +52,7 @@ export const getUsers = async ({
 
 export const getUser = async (id: string): Promise<UserType> => {
   try {
+    await sleep(5000)
     const res = await fetch(`${BASEURL}/${id}`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
@@ -70,6 +73,7 @@ export const getUser = async (id: string): Promise<UserType> => {
 
 export const addUser = async (body: addUserDTO) => {
   try {
+    await sleep(5000)
     const res = await fetch(BASEURL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -91,9 +95,10 @@ export const addUser = async (body: addUserDTO) => {
 
 export const updateUser = async (id: string, body: Partial<UserType>) => {
   try {
+    await sleep(5000)
     // remove undefined fields inline
     const cleanBody = Object.fromEntries(
-      Object.entries(body).filter(([_, value]) => value !== undefined)
+      Object.entries(body).filter(([, value]) => value !== undefined)
     )
 
     const res = await fetch(`${BASEURL}/${id}`, {

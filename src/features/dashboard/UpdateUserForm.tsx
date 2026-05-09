@@ -1,26 +1,25 @@
 import { FormField } from "@/components/form/FormField"
 import { SubmitButton } from "@/components/form/SubmitButton"
-import { getUser, updateUser } from "@/lib/api"
-import { useEffect, useState } from "react"
-import { useParams } from "react-router"
+import { useUser } from "./hooks/useUser"
+import { DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { useUpdateUserMutation } from "./hooks/useUpdateUserMutation"
+import { useQueryClient } from "@tanstack/react-query"
+import type { UserType } from "@/types/dashboard.types"
 
-export const UpdateUser = () => {
-  const { id } = useParams()
+interface UpdateUserFormProps {
+  userId: string
+  onSuccess: () => void
+}
 
-  const [name, setName] = useState("")
-  const [age, setAge] = useState("")
-  const [email, setEmail] = useState("")
-  const [isLoading, setIsLoading] = useState(false)
+export const UpdateUserForm = ({ onSuccess, userId }: UpdateUserFormProps) => {
+  const queryClient = useQueryClient()
+  const { data, isLoading: isFetchingUser } = useUser(userId)
+  const { updateUserMutation, isLoading: isUpdatingUser } =
+    useUpdateUserMutation(userId)
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await getUser(id!)
-      setName(res.name)
-      setEmail(res.email)
-      setAge(String(res.age))
-    }
-    fetchData()
-  }, [id])
+  const name = data?.name ?? ""
+  const email = data?.email ?? ""
+  const age = data?.age ?? ""
 
   const onSubmitHandler = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -30,64 +29,71 @@ export const UpdateUser = () => {
     const email = formData.get("email") as string
     const age = formData.get("age") as string
 
-    try {
-      setIsLoading(true)
-      await updateUser(id!, { name, email, age: +age })
-    } catch (error) {
-      console.error("Error updating user:", error)
-    } finally {
-      setIsLoading(false)
-    }
+    updateUserMutation(
+      { name, email, age: +age },
+      {
+        onSuccess: (updated: UserType) => {
+          console.log(updated)
+          queryClient.setQueryData(["users", userId], updated)
+          queryClient.setQueryData(["users"], (old: { data: UserType[] }) => ({
+            ...old,
+            data: old.data.map((u) => (u.id === updated.id ? updated : u)),
+          }))
+
+          onSuccess?.()
+        },
+      }
+    )
   }
 
-  if (isLoading) {
+  if (isFetchingUser || isUpdatingUser) {
     return <div>IsLoading</div>
   }
 
   return (
-    <div className="mx-auto flex h-screen items-center justify-center">
-      <section className="min-w-140 rounded-xl border bg-neutral-700 px-4 py-4 backdrop-blur-3xl">
-        <header className="text-center">
-          <h2 className="mb-2 text-xl">Update User</h2>
-        </header>
+    <>
+      <DialogHeader className="text-center">
+        <DialogTitle className="mb-2 text-xl text-primary">
+          Update User
+        </DialogTitle>
+      </DialogHeader>
 
-        <form onSubmit={onSubmitHandler} className="flex flex-col gap-4">
-          {/* field container */}
-          <FormField
-            label="Email"
-            name="email"
-            type="email"
-            placeholder="john@example.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          {/* field container */}
-          <FormField
-            label="Name"
-            name="name"
-            placeholder="John Doe"
-            required
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          {/* ifield container */}
+      <form onSubmit={onSubmitHandler} className="flex flex-col gap-4">
+        {/* field container */}
+        <FormField
+          label="Email"
+          name="email"
+          type="email"
+          placeholder="john@example.com"
+          defaultValue={email}
+        />
+        {/* field container */}
+        <FormField
+          label="Name"
+          name="name"
+          placeholder="John Doe"
+          required
+          defaultValue={name}
+        />
+        {/* ifield container */}
 
-          <FormField
-            label="Age"
-            name="age"
-            type="number"
-            placeholder="18"
-            required
-            value={age}
-            onChange={(e) => setAge(e.target.value)}
-            min={0}
+        <FormField
+          label="Age"
+          name="age"
+          type="number"
+          placeholder="18"
+          required
+          defaultValue={age}
+          min={0}
+        />
+        {/* buttons container */}
+        <div className="mt-4 flex justify-end">
+          <SubmitButton
+            isLoading={isFetchingUser || isUpdatingUser}
+            children="Update User"
           />
-          {/* buttons container */}
-          <div className="mt-4 flex justify-end">
-            <SubmitButton children="Update User" />
-          </div>
-        </form>
-      </section>
-    </div>
+        </div>
+      </form>
+    </>
   )
 }
