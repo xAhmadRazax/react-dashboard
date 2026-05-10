@@ -8,7 +8,7 @@ import "./index.css"
 import { ThemeProvider } from "@/components/theme-provider.tsx"
 import { router } from "./router.tsx"
 
-const queryClient = new QueryClient({
+export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: 5 * 60 * 1000, // 5 minutes

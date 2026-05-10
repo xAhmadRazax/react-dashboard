@@ -1,34 +1,324 @@
 {
   "users": [
     {
-      "name": "Ahmad",
-      "email": "AhmadRaza@hotmail.com",
+      "name": "Ahmad Raza",
+      "email": "ahmad.raza@hotmail.com",
       "age": 29,
-      "id": "bPbzpqH6tS8"
+      "id": "usr_001",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-09T10:12:45.000Z"
     },
     {
-      "name": "Gintoki Sakata",
-      "email": "Azir.sakata789@gmail.com",
-      "age": 232,
-      "id": "Cy6DDREyUrY"
-    },
-    {
-      "name": "asda",
-      "email": "gintoki.sakata789@gmail.com",
+      "name": "Fatima Noor",
+      "email": "fatima.noor@gmail.com",
       "age": 22,
-      "id": "SiQU6CyzrXo"
+      "id": "usr_002",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-10T06:20:11.000Z"
     },
     {
-      "name": "asdasd",
-      "email": "gintoki.sakata789@gmail.com",
-      "age": 2222,
-      "id": "wgOqIVU4VAk"
+      "name": "Usman Tariq",
+      "email": "usman.tariq@gmail.com",
+      "age": 35,
+      "id": "usr_003",
+      "isVerified": false,
+      "lastLoginAt": "2026-04-25T12:05:44.000Z"
     },
     {
-      "name": "asasd",
-      "email": "gintoki.sakata789@gmail.com",
-      "age": 222,
-      "id": "TNt5dXwtBgQ"
+      "name": "Hamza Ali",
+      "email": "hamza.ali@gmail.com",
+      "age": 26,
+      "id": "usr_004",
+      "isVerified": false,
+      "lastLoginAt": "2026-05-01T07:14:55.000Z"
+    },
+    {
+      "name": "Noor Fatima",
+      "email": "noor.fatima@gmail.com",
+      "age": 21,
+      "id": "usr_005",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-10T01:22:18.000Z"
+    },
+    {
+      "name": "Laiba Noor",
+      "email": "laiba.noor@gmail.com",
+      "age": 25,
+      "id": "usr_006",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-07T08:00:00.000Z"
+    },
+    {
+      "name": "Muhammad Bilal",
+      "email": "bilal.muhammad@yahoo.com",
+      "age": 31,
+      "id": "usr_007",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-08T14:30:22.000Z"
+    },
+    {
+      "name": "Ayesha Khan",
+      "email": "ayesha.khan@gmail.com",
+      "age": 24,
+      "id": "usr_008",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-09T18:45:33.000Z"
+    },
+    {
+      "name": "Omar Farooq",
+      "email": "omar.farooq@outlook.com",
+      "age": 42,
+      "id": "usr_009",
+      "isVerified": false,
+      "lastLoginAt": "2026-05-03T09:20:15.000Z"
+    },
+    {
+      "name": "Zara Ahmed",
+      "email": "zara.ahmed@gmail.com",
+      "age": 27,
+      "id": "usr_010",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-10T11:10:00.000Z"
+    },
+    {
+      "name": "Hassan Raza",
+      "email": "hassan.raza@hotmail.com",
+      "age": 33,
+      "id": "usr_011",
+      "isVerified": false,
+      "lastLoginAt": "2026-05-04T16:22:41.000Z"
+    },
+    {
+      "name": "Sana Mirza",
+      "email": "sana.mirza@gmail.com",
+      "age": 23,
+      "id": "usr_012",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-09T20:15:30.000Z"
+    },
+    {
+      "name": "Imran Shahid",
+      "email": "imran.shahid@yahoo.com",
+      "age": 38,
+      "id": "usr_013",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-08T07:45:12.000Z"
+    },
+    {
+      "name": "Mehak Ali",
+      "email": "mehak.ali@gmail.com",
+      "age": 20,
+      "id": "usr_014",
+      "isVerified": false,
+      "lastLoginAt": "2026-05-02T22:30:00.000Z"
+    },
+    {
+      "name": "Saad Ahmed",
+      "email": "saad.ahmed@outlook.com",
+      "age": 29,
+      "id": "usr_015",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-10T05:55:18.000Z"
+    },
+    {
+      "name": "Hina Akhtar",
+      "email": "hina.akhtar@gmail.com",
+      "age": 31,
+      "id": "usr_016",
+      "isVerified": false,
+      "lastLoginAt": "2026-05-06T13:40:22.000Z"
+    },
+    {
+      "name": "Faisal Mahmood",
+      "email": "faisal.mahmood@hotmail.com",
+      "age": 44,
+      "id": "usr_017",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-07T10:15:33.000Z"
+    },
+    {
+      "name": "Rabia Tariq",
+      "email": "rabia.tariq@gmail.com",
+      "age": 26,
+      "id": "usr_018",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-09T12:05:47.000Z"
+    },
+    {
+      "name": "Shahzad Iqbal",
+      "email": "shahzad.iqbal@yahoo.com",
+      "age": 36,
+      "id": "usr_019",
+      "isVerified": false,
+      "lastLoginAt": "2026-05-01T18:20:00.000Z"
+    },
+    {
+      "name": "Maria Khan",
+      "email": "maria.khan@gmail.com",
+      "age": 28,
+      "id": "usr_020",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-08T09:30:55.000Z"
+    },
+    {
+      "name": "Asad Javed",
+      "email": "asad.javed@outlook.com",
+      "age": 30,
+      "id": "usr_021",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-10T14:25:11.000Z"
+    },
+    {
+      "name": "Nida Khalid",
+      "email": "nida.khalid@gmail.com",
+      "age": 24,
+      "id": "usr_022",
+      "isVerified": false,
+      "lastLoginAt": "2026-05-05T11:50:00.000Z"
+    },
+    {
+      "name": "Waqas Anwar",
+      "email": "waqas.anwar@hotmail.com",
+      "age": 32,
+      "id": "usr_023",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-08T16:40:33.000Z"
+    },
+    {
+      "name": "Saba Qureshi",
+      "email": "saba.qureshi@gmail.com",
+      "age": 27,
+      "id": "usr_024",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-09T08:15:22.000Z"
+    },
+    {
+      "name": "Taimur Ali",
+      "email": "taimur.ali@yahoo.com",
+      "age": 34,
+      "id": "usr_025",
+      "isVerified": false,
+      "lastLoginAt": "2026-05-03T19:10:44.000Z"
+    },
+    {
+      "name": "Areeba Khan",
+      "email": "areeba.khan@gmail.com",
+      "age": 22,
+      "id": "usr_026",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-07T15:55:00.000Z"
+    },
+    {
+      "name": "Danish Pervez",
+      "email": "danish.pervez@outlook.com",
+      "age": 40,
+      "id": "usr_027",
+      "isVerified": false,
+      "lastLoginAt": "2026-05-04T10:30:19.000Z"
+    },
+    {
+      "name": "Eman Sheikh",
+      "email": "eman.sheikh@gmail.com",
+      "age": 23,
+      "id": "usr_028",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-10T07:20:45.000Z"
+    },
+    {
+      "name": "Farhan Abbas",
+      "email": "farhan.abbas@hotmail.com",
+      "age": 37,
+      "id": "usr_029",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-06T20:05:33.000Z"
+    },
+    {
+      "name": "Hira Naeem",
+      "email": "hira.naeem@gmail.com",
+      "age": 21,
+      "id": "usr_030",
+      "isVerified": false,
+      "lastLoginAt": "2026-05-01T09:25:00.000Z"
+    },
+    {
+      "name": "Irfan Haider",
+      "email": "irfan.haider@yahoo.com",
+      "age": 33,
+      "id": "usr_031",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-09T17:50:28.000Z"
+    },
+    {
+      "name": "Javeria Anjum",
+      "email": "javeria.anjum@gmail.com",
+      "age": 29,
+      "id": "usr_032",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-08T13:35:15.000Z"
+    },
+    {
+      "name": "Kamran Ashraf",
+      "email": "kamran.ashraf@outlook.com",
+      "age": 45,
+      "id": "usr_033",
+      "isVerified": false,
+      "lastLoginAt": "2026-05-02T14:45:50.000Z"
+    },
+    {
+      "name": "Lubna Akram",
+      "email": "lubna.akram@gmail.com",
+      "age": 26,
+      "id": "usr_034",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-10T03:15:22.000Z"
+    },
+    {
+      "name": "Nimra Tariq",
+      "email": "nimra.tariq@gmail.com",
+      "age": 20,
+      "id": "usr_036",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-09T22:40:33.000Z"
+    },
+    {
+      "name": "Owais Akhtar",
+      "email": "owais.akhtar@yahoo.com",
+      "age": 34,
+      "id": "usr_037",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-05T12:20:00.000Z"
+    },
+    {
+      "name": "Parisa Ahmed",
+      "email": "parisa.ahmed@gmail.com",
+      "age": 28,
+      "id": "usr_038",
+      "isVerified": false,
+      "lastLoginAt": "2026-05-06T18:55:44.000Z"
+    },
+    {
+      "name": "Qasim Riaz",
+      "email": "qasim.riaz@outlook.com",
+      "age": 41,
+      "id": "usr_039",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-08T05:10:11.000Z"
+    },
+    {
+      "name": "Salman Mirza",
+      "email": "salman.mirza@hotmail.com",
+      "age": 32,
+      "id": "usr_041",
+      "isVerified": false,
+      "lastLoginAt": "2026-05-04T09:15:33.000Z"
+    },
+    {
+      "name": "Tahira Naseem",
+      "email": "tahira.naseem@gmail.com",
+      "age": 27,
+      "id": "usr_042",
+      "isVerified": true,
+      "lastLoginAt": "2026-05-09T14:20:55.000Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

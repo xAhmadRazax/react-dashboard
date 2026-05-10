@@ -5,6 +5,7 @@ import { DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { useUpdateUserMutation } from "./hooks/useUpdateUserMutation"
 import { useQueryClient } from "@tanstack/react-query"
 import type { UserType } from "@/types/dashboard.types"
+import { FormSkeleton } from "./FormSkeleton"
 
 interface UpdateUserFormProps {
   userId: string
@@ -13,7 +14,7 @@ interface UpdateUserFormProps {
 
 export const UpdateUserForm = ({ onSuccess, userId }: UpdateUserFormProps) => {
   const queryClient = useQueryClient()
-  const { data, isLoading: isFetchingUser } = useUser(userId)
+  const { data, isLoading: isFetchingUser, error } = useUser(userId)
   const { updateUserMutation, isLoading: isUpdatingUser } =
     useUpdateUserMutation(userId)
 
@@ -21,7 +22,7 @@ export const UpdateUserForm = ({ onSuccess, userId }: UpdateUserFormProps) => {
   const email = data?.email ?? ""
   const age = data?.age ?? ""
 
-  const onSubmitHandler = async (e: React.SubmitEvent<HTMLFormElement>) => {
+  const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
 
@@ -46,8 +47,35 @@ export const UpdateUserForm = ({ onSuccess, userId }: UpdateUserFormProps) => {
     )
   }
 
-  if (isFetchingUser || isUpdatingUser) {
-    return <div>IsLoading</div>
+  // Show loading skeleton while fetching user
+  if (isFetchingUser) {
+    return <FormSkeleton title="Update User" rows={3} />
+  }
+
+  // Show error state
+  if (error) {
+    return (
+      <>
+        <DialogHeader className="text-center">
+          <DialogTitle className="mb-2 text-xl text-primary">
+            Update User
+          </DialogTitle>
+        </DialogHeader>
+        <div className="flex flex-col items-center justify-center gap-4 py-8">
+          <div className="text-center text-destructive">
+            <p className="font-semibold">Failed to load user data</p>
+            <p className="text-sm text-muted-foreground">{error?.message}</p>
+          </div>
+          <button
+            type="button"
+            onClick={() => window.location.reload()}
+            className="rounded-md bg-primary px-4 py-2 text-sm text-primary-foreground hover:bg-primary/90"
+          >
+            Try Again
+          </button>
+        </div>
+      </>
+    )
   }
 
   return (
@@ -59,23 +87,23 @@ export const UpdateUserForm = ({ onSuccess, userId }: UpdateUserFormProps) => {
       </DialogHeader>
 
       <form onSubmit={onSubmitHandler} className="flex flex-col gap-4">
-        {/* field container */}
         <FormField
           label="Email"
           name="email"
           type="email"
           placeholder="john@example.com"
           defaultValue={email}
+          disabled={isUpdatingUser}
         />
-        {/* field container */}
+
         <FormField
           label="Name"
           name="name"
           placeholder="John Doe"
           required
           defaultValue={name}
+          disabled={isUpdatingUser}
         />
-        {/* ifield container */}
 
         <FormField
           label="Age"
@@ -85,11 +113,13 @@ export const UpdateUserForm = ({ onSuccess, userId }: UpdateUserFormProps) => {
           required
           defaultValue={age}
           min={0}
+          disabled={isUpdatingUser}
         />
-        {/* buttons container */}
-        <div className="mt-4 flex justify-end">
+
+        <div className="mt-4 flex justify-end gap-2">
           <SubmitButton
-            isLoading={isFetchingUser || isUpdatingUser}
+            isLoading={isUpdatingUser}
+            loadingText="Updating User"
             children="Update User"
           />
         </div>

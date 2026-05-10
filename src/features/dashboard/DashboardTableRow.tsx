@@ -44,7 +44,7 @@ export const DashboardTableRow = ({
       <TableCell className="pe-4">
         <div className="flex justify-end gap-2">
           <UpdateUserButton id={id} />
-          <DeleteUserButton id={id} />
+          <DeleteUserButton id={id} name={name} />
         </div>
       </TableCell>
     </TableRow>

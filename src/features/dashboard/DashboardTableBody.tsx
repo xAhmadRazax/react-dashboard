@@ -1,13 +1,13 @@
 import { TableBody, TableCell, TableRow } from "@/components/ui/table"
 
 import { DashboardTableRow } from "./DashboardTableRow"
-import { useUsers } from "./hooks/useUsers"
+import type { UserType } from "@/types/dashboard.types"
 
-export const DashboardTableBody = () => {
-  const { data } = useUsers()
+interface DashboardTableProps {
+  users: UserType[]
+}
 
-  const users = data?.data || []
-
+export const DashboardTableBody = ({ users }: DashboardTableProps) => {
   return (
     <TableBody>
       {users.length > 0 ? (

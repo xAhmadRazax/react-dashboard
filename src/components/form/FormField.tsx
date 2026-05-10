@@ -1,10 +1,12 @@
 // components/forms/FormField.tsx
 import { Field, FieldLabel } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
+import { cn } from "@/lib/utils"
 
 interface FormFieldProps {
   label: string
   name: string
+  className?: string
   type?: string
   placeholder?: string
   required?: boolean
@@ -12,6 +14,7 @@ interface FormFieldProps {
   defaultValue?: string | number
   value?: string | number
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  disabled: boolean
 }
 
 export const FormField = ({
@@ -24,6 +27,8 @@ export const FormField = ({
   defaultValue,
   value,
   onChange,
+  className,
+  disabled,
 }: FormFieldProps) => {
   return (
     <Field>
@@ -37,7 +42,11 @@ export const FormField = ({
         defaultValue={defaultValue}
         value={value}
         onChange={onChange}
-        className="block rounded-sm px-2 py-2 text-base ring-1 ring-primary/40 outline-none focus-visible:ring-primary/80"
+        disabled={disabled}
+        className={cn(
+          "block rounded-sm px-2 py-2 text-base ring-1 ring-primary/40 outline-none focus-visible:ring-primary/80",
+          className
+        )}
         required={required}
       />
     </Field>

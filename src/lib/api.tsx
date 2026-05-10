@@ -18,7 +18,6 @@ export const getUsers = async ({
     await sleep(5000)
     const sortString = order === "desc" ? `-${sortBy}` : sortBy
 
-    console.log(sortString)
     const res = await fetch(
       `${BASEURL}?_page=${page}&_per_page=${itemsPerPage}&_sort=${sortString}`,
       {
@@ -37,8 +36,6 @@ export const getUsers = async ({
       pages: result.pages,
       prev: result.prev,
     }
-
-    console.log(result)
 
     return { data: result.data, meta: meta }
   } catch (err: unknown) {

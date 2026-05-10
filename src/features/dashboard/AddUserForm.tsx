@@ -9,7 +9,8 @@ interface AddUserFormProps {
 }
 
 export const AddUserForm = ({ onSuccess }: AddUserFormProps) => {
-  const { createUserMutation, isLoading } = useCreateUserMutation()
+  const { createUserMutation, isLoading: isCreatingUser } =
+    useCreateUserMutation()
   const queryClient = useQueryClient()
 
   const onSubmitHandler = async (e: React.SubmitEvent<HTMLFormElement>) => {
@@ -39,16 +40,22 @@ export const AddUserForm = ({ onSuccess }: AddUserFormProps) => {
       </DialogHeader>
 
       <form onSubmit={onSubmitHandler} className="flex flex-col gap-4">
-        {/* field container */}
         <FormField
           label="Email"
           name="email"
           type="email"
           placeholder="john@example.com"
+          required
+          disabled={isCreatingUser}
         />
-        {/* field container */}
-        <FormField label="Name" name="name" placeholder="John Doe" required />
-        {/* ifield container */}
+
+        <FormField
+          label="Name"
+          name="name"
+          placeholder="John Doe"
+          required
+          disabled={isCreatingUser}
+        />
 
         <FormField
           label="Age"
@@ -57,10 +64,15 @@ export const AddUserForm = ({ onSuccess }: AddUserFormProps) => {
           placeholder="18"
           required
           min={0}
+          disabled={isCreatingUser}
         />
-        {/* buttons container */}
-        <div className="mt-4 flex justify-end">
-          <SubmitButton isLoading={isLoading} children="Add User" />
+
+        <div className="mt-4 flex justify-end gap-2">
+          <SubmitButton
+            isLoading={isCreatingUser}
+            loadingText="Adding User"
+            children="Add User"
+          />
         </div>
       </form>
     </>
