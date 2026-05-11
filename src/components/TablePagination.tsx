@@ -12,12 +12,21 @@ import { useSearchParams } from "react-router"
 
 interface TablePaginationProps {
   totalPages: number
+  isLoading: boolean
+  items: number
+  currentItems: number
+  currentPage: number
 }
 
-export function TablePagination({ totalPages }: TablePaginationProps) {
-  const [searchParams, setSearchParams] = useSearchParams()
+export function TablePagination({
+  totalPages,
+  isLoading,
+  items,
+  currentItems,
+  currentPage,
+}: TablePaginationProps) {
+  const [, setSearchParams] = useSearchParams()
   const queryClient = useQueryClient()
-  const currentPage = Number(searchParams.get("page")) || 1
 
   const handlePrevious = () => {
     if (currentPage > 1) {
@@ -53,6 +62,11 @@ export function TablePagination({ totalPages }: TablePaginationProps) {
 
   return (
     <div className="flex items-center justify-between gap-4">
+      <div className="text-sm text-foreground/80">
+        {items > 0
+          ? `Showing ${currentItems} of ${items} items`
+          : "No items to display"}
+      </div>
       <Pagination className="mx-0 w-auto">
         <PaginationContent>
           <PaginationItem>
@@ -65,7 +79,9 @@ export function TablePagination({ totalPages }: TablePaginationProps) {
               onFocus={prefetchPreviousPage} // ← Add for keyboard
               onTouchStart={prefetchPreviousPage} // ← Add for mobile
               className={
-                currentPage === 1 ? "pointer-events-none opacity-50" : ""
+                currentPage === 1 || isLoading
+                  ? "pointer-events-none opacity-50"
+                  : ""
               }
             />
           </PaginationItem>
@@ -79,7 +95,7 @@ export function TablePagination({ totalPages }: TablePaginationProps) {
               onFocus={prefetchPreviousPage} // ← Add for keyboard
               onTouchStart={prefetchPreviousPage} // ← Add for mobile
               className={
-                currentPage === totalPages
+                currentPage === totalPages || isLoading
                   ? "pointer-events-none opacity-50"
                   : ""
               }

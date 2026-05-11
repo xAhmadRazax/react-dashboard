@@ -3,6 +3,7 @@ import { UpdateUserButton } from "./UpdateUserButton"
 import { DeleteUserButton } from "./DeleteUserButton"
 
 interface DashboardTableRowProps {
+  index: number
   id: string
   name: string
   email: string
@@ -12,6 +13,7 @@ interface DashboardTableRowProps {
 }
 
 export const DashboardTableRow = ({
+  index,
   id,
   name,
   email,
@@ -21,29 +23,28 @@ export const DashboardTableRow = ({
 }: DashboardTableRowProps) => {
   return (
     <TableRow className="transition-colors hover:bg-muted/40">
-      <TableCell className="ps-4 font-medium">{email}</TableCell>
+      <TableCell className="ps-4 font-medium">{index}</TableCell>
+      <TableCell className="font-medium">{email}</TableCell>
 
       <TableCell>{name}</TableCell>
 
       <TableCell>{age}</TableCell>
 
-      <TableCell>
-        <span
-          className={
-            isVerified
-              ? "text-green-600 dark:text-green-400"
-              : "text-muted-foreground"
-          }
-        >
-          {isVerified ? "Verified" : "Pending"}
-        </span>
+      <TableCell className="text-muted-foreground">
+        {new Date(lastLoginAt).toLocaleString("en-US", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+        })}
       </TableCell>
 
-      <TableCell className="text-muted-foreground">{lastLoginAt}</TableCell>
-
-      <TableCell className="pe-4">
+      <TableCell colSpan={2} className="pe-4">
         <div className="flex justify-end gap-2">
-          <UpdateUserButton id={id} />
+          <UpdateUserButton
+            user={{ id, name, email, age, isVerified, lastLoginAt }}
+          />
           <DeleteUserButton id={id} name={name} />
         </div>
       </TableCell>

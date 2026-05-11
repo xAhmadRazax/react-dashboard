@@ -3,4 +3,6 @@ export interface PaginationMeta {
   prev: number | null
   pages: number
   items: number
+  currentPage: number
+  itemsPerPage: number
 }

@@ -5,13 +5,23 @@ import type { UserType } from "@/types/dashboard.types"
 
 interface DashboardTableProps {
   users: UserType[]
+  currentPage: number
 }
 
-export const DashboardTableBody = ({ users }: DashboardTableProps) => {
+export const DashboardTableBody = ({
+  users,
+  currentPage = 1,
+}: DashboardTableProps) => {
   return (
     <TableBody>
       {users.length > 0 ? (
-        users.map((row) => <DashboardTableRow key={row.id} {...row} />)
+        users.map((row, index: number) => (
+          <DashboardTableRow
+            key={row.id}
+            {...row}
+            index={(currentPage - 1) * users.length + index + 1}
+          />
+        ))
       ) : (
         <TableRow>
           <TableCell colSpan={6} className="h-32 text-center">

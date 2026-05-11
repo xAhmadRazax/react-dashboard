@@ -30,11 +30,15 @@ export const getUsers = async ({
     }
     const result = await res.json()
 
+    console.log(result)
+    console.log()
     const meta: PaginationMeta = {
       items: result.items,
       next: result.next,
       pages: result.pages,
       prev: result.prev,
+      currentPage: result.next ? result.next - 1 : (result.last ?? 1),
+      itemsPerPage: itemsPerPage,
     }
 
     return { data: result.data, meta: meta }
