@@ -2,7 +2,7 @@ import { AddUser } from "@/features/dashboard/AddUser"
 import { DashboardTable } from "@/features/dashboard/DashboardTable"
 import { DashboardTableSkeleton } from "@/features/dashboard/DashboardTableSkeleton"
 import { getUsers } from "@/lib/api"
-import { queryClient } from "@/main"
+import { queryClient } from "@/lib/queryClient"
 import { Suspense } from "react"
 
 // eslint-disable-next-line react-refresh/only-export-components

@@ -103,6 +103,10 @@ export const SideBar = () => {
             <li>
               <SidebarLink to="/" label="Dashboard" />
             </li>
+
+            <li>
+              <SidebarLink to="/company" label="Company" />
+            </li>
           </ul>
         </div>
       </nav>
