@@ -2,6 +2,8 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { AddUserForm } from "./AddUserForm"
 import { useState } from "react"
 import { useNavigate } from "react-router"
+import { Button } from "@/components/ui/button"
+import { Plus } from "lucide-react"
 
 export const AddUser = () => {
   const [open, setOpen] = useState(false)
@@ -14,7 +16,16 @@ export const AddUser = () => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <div className="flex justify-end xl:me-8">
-        <DialogTrigger className="mb-4 cursor-pointer rounded-sm bg-green-600 px-3 py-1.5 text-sm font-semibold text-green-50 outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50">
+        <DialogTrigger
+          render={
+            <Button
+              variant="default" // ✅ Use theme color
+              size="sm" // ✅ Match other buttons
+              className="mb-4 gap-1.5"
+            />
+          }
+        >
+          <Plus className="size-3.5" />
           Add User
         </DialogTrigger>
       </div>
