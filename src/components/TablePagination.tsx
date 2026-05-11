@@ -62,6 +62,8 @@ export function TablePagination({ totalPages }: TablePaginationProps) {
                 handlePrevious()
               }}
               onMouseEnter={prefetchPreviousPage}
+              onFocus={prefetchPreviousPage} // ← Add for keyboard
+              onTouchStart={prefetchPreviousPage} // ← Add for mobile
               className={
                 currentPage === 1 ? "pointer-events-none opacity-50" : ""
               }
@@ -74,6 +76,8 @@ export function TablePagination({ totalPages }: TablePaginationProps) {
                 handleNext()
               }}
               onMouseEnter={prefetchNextPage}
+              onFocus={prefetchPreviousPage} // ← Add for keyboard
+              onTouchStart={prefetchPreviousPage} // ← Add for mobile
               className={
                 currentPage === totalPages
                   ? "pointer-events-none opacity-50"
