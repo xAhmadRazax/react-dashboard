@@ -2,11 +2,11 @@ import { Table, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 
 import { DashboardTableBody } from "./DashboardTableBody"
 import { TablePagination } from "@/components/TablePagination"
-import { useUsers } from "./hooks/useUsers"
-import { usePrefetchUsers } from "./hooks/usePrefetchUsers"
 import { Button } from "@/components/ui/button"
 import { RotateCw } from "lucide-react"
 import { useIsFetching, useQueryClient } from "@tanstack/react-query"
+import { useUsers } from "../hooks/useUsers"
+import { usePrefetchUsers } from "../hooks/usePrefetchUsers"
 
 export const DashboardTable = () => {
   const queryClient = useQueryClient()
@@ -62,6 +62,7 @@ export const DashboardTable = () => {
           </TableHeader>
 
           <DashboardTableBody
+            itemsPerPage={meta?.itemsPerPage || 10}
             currentPage={meta.currentPage || 1}
             users={users}
           />

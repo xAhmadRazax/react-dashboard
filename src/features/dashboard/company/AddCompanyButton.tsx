@@ -1,11 +1,12 @@
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
-import { AddUserForm } from "./AddUserForm"
 import { useState } from "react"
 import { useNavigate } from "react-router"
 import { Button } from "@/components/ui/button"
 import { Plus } from "lucide-react"
+import { AddCompanyForm } from "./AddCompanyForm"
+// import { AddEmployeeForm } from "./AddEmployeeForm"
 
-export const AddUser = () => {
+export const AddCompany = () => {
   const [open, setOpen] = useState(false)
   const navigate = useNavigate()
 
@@ -26,11 +27,11 @@ export const AddUser = () => {
           }
         >
           <Plus className="size-3.5" />
-          Add User
+          Add Company
         </DialogTrigger>
       </div>
       <DialogContent className="px-6 text-foreground/80">
-        <AddUserForm onSuccess={onSuccess} />
+        <AddCompanyForm onSuccess={onSuccess} />
       </DialogContent>
     </Dialog>
   )

@@ -1,16 +1,16 @@
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { UpdateUserForm } from "./UpdateUserForm"
+import type { CompanyType } from "@/types/dashboard.types"
+import { UpdateCompanyForm } from "./UpdateCompanyForm"
 // import { useQueryClient } from "@tanstack/react-query"
 // import { getUser } from "@/lib/api"
-import type { UserType } from "@/types/dashboard.types"
 
-interface UpdateUserButtonProps {
-  user: UserType
+interface UpdateCompanyButtonProps {
+  company: CompanyType
 }
 
-export const UpdateUserButton = ({ user }: UpdateUserButtonProps) => {
+export const UpdateCompanyButton = ({ company }: UpdateCompanyButtonProps) => {
   // const queryClient = useQueryClient()
 
   const [open, setOpen] = useState(false)
@@ -23,6 +23,7 @@ export const UpdateUserButton = ({ user }: UpdateUserButtonProps) => {
   // }
 
   const onSuccess = () => {
+    console.log("User updated successfully")
     setOpen(false)
   }
   return (
@@ -44,7 +45,11 @@ export const UpdateUserButton = ({ user }: UpdateUserButtonProps) => {
         </DialogTrigger>
       </div>
       <DialogContent className="px-6 text-foreground/80">
-        <UpdateUserForm user={user} userId={user.id} onSuccess={onSuccess} />
+        <UpdateCompanyForm
+          company={company}
+          companyId={company.id}
+          onSuccess={onSuccess}
+        />
       </DialogContent>
     </Dialog>
   )

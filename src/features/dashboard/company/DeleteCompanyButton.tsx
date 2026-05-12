@@ -9,33 +9,33 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
-import { useDeleteUserMutation } from "./hooks/useDeleteUserMutation"
 import { useQueryClient } from "@tanstack/react-query"
-import type { UserType } from "@/types/dashboard.types"
+import type { CompanyType } from "@/types/dashboard.types"
 import { useSearchParams } from "react-router"
+import { useDeleteCompanyMutation } from "./hooks/useDeleteCompanyMutation"
 
-interface DeleteUserButtonProps {
+interface DeleteCompanyButtonProps {
   id: string
-  name?: string // Optional: show user name in confirmation
+  name?: string // Optional: show company name in confirmation
 }
 
-export const DeleteUserButton = ({ id, name }: DeleteUserButtonProps) => {
+export const DeleteCompanyButton = ({ id, name }: DeleteCompanyButtonProps) => {
   const [searchParams] = useSearchParams()
   const page = Number(searchParams.get("page")) || 1
   const queryClient = useQueryClient()
   const [open, setOpen] = useState(false)
-  const { deleteUserMutation, isLoading } = useDeleteUserMutation(id)
+  const { deleteCompanyMutation, isLoading } = useDeleteCompanyMutation(id)
 
   const handleDelete = () => {
-    deleteUserMutation(undefined, {
+    deleteCompanyMutation(undefined, {
       onSuccess: () => {
         queryClient.invalidateQueries({
-          queryKey: ["users"],
+          queryKey: ["companies"],
           refetchType: "all",
         })
         queryClient.setQueryData(
-          ["users", page],
-          (old: { data: UserType[] }) => ({
+          ["companies", page],
+          (old: { data: CompanyType[] }) => ({
             ...old,
             data: old.data.filter((u) => u.id !== id),
           })
@@ -53,11 +53,11 @@ export const DeleteUserButton = ({ id, name }: DeleteUserButtonProps) => {
 
       <DialogContent className="px-6 text-foreground/80">
         <DialogHeader>
-          <DialogTitle>Delete User</DialogTitle>
+          <DialogTitle>Delete Company</DialogTitle>
           <DialogDescription>
-            Are you sure you want to delete {name ? `"${name}"` : "this user"}?
-            This action cannot be undone and will permanently remove the user's
-            data from the system.
+            Are you sure you want to delete{" "}
+            {name ? `"${name}"` : "this company"}? This action cannot be undone
+            and will permanently remove the company's data from the system.
           </DialogDescription>
         </DialogHeader>
 

@@ -1,9 +1,7 @@
 import { createBrowserRouter } from "react-router"
 import { Layout } from "./pages/Layout"
-import { Dashboard } from "./pages/Dashboard"
-import { Company } from "./features/dashboard/company/Company"
-import { loader as dashboardLoader } from "./pages/Dashboard"
-
+import { Employee, loader as employeeLoader } from "./pages/Employee.page"
+import { Company } from "./pages/Company.page"
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -11,12 +9,13 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Dashboard />,
-        loader: dashboardLoader,
+        element: <Employee />,
+        loader: employeeLoader,
       },
       {
-        path: "/company",
+        path: "/companies",
         element: <Company />,
+        loader: lo,
       },
     ],
   },

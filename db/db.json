@@ -319,6 +319,314 @@
       "id": "usr_042",
       "isVerified": true,
       "lastLoginAt": "2026-05-09T14:20:55.000Z"
+    },
+    {
+      "name": "Ali Khan Rizwan khan jan",
+      "email": "Gintoki.saqqqkata789@gmail.com",
+      "age": 22,
+      "id": "--yXXgVbTYY"
+    }
+  ],
+  "companies": [
+    {
+      "id": "comp_001",
+      "name": "Tech Solutions Inc.",
+      "email": "contact@techsolutions.com",
+      "address": "123 Silicon Valley Blvd, San Francisco, CA 94105"
+    },
+    {
+      "id": "comp_002",
+      "name": "Global Innovations Group",
+      "email": "info@globalinnovations.com",
+      "address": "456 Madison Avenue, New York, NY 10017"
+    },
+    {
+      "id": "comp_003",
+      "name": "Digital Dynamics LLC",
+      "email": "hello@digitaldynamics.com",
+      "address": "789 Peachtree Street, Atlanta, GA 30308"
+    },
+    {
+      "id": "comp_004",
+      "name": "Future Systems Corp",
+      "email": "support@futuresystems.com",
+      "address": "321 Lake Shore Drive, Chicago, IL 60611"
+    },
+    {
+      "id": "comp_005",
+      "name": "Creative Solutions Co.",
+      "email": "creative@solutions.com",
+      "address": "555 5th Avenue, Seattle, WA 98101"
+    },
+    {
+      "id": "comp_006",
+      "name": "Quantum Technologies",
+      "email": "quantum@tech.com",
+      "address": "777 Innovation Way, Austin, TX 78701"
+    },
+    {
+      "id": "comp_007",
+      "name": "Pinnacle Enterprises",
+      "email": "contact@pinnacle.com",
+      "address": "888 Business Park Dr, Denver, CO 80202"
+    },
+    {
+      "id": "comp_008",
+      "name": "Vertex Solutions",
+      "email": "info@vertexsolutions.com",
+      "address": "999 Corporate Center, Boston, MA 02110"
+    },
+    {
+      "id": "comp_009",
+      "name": "NexGen Industries",
+      "email": "support@nexgen.com",
+      "address": "111 Technology Drive, San Diego, CA 92101"
+    },
+    {
+      "id": "comp_010",
+      "name": "Apex Innovations",
+      "email": "hello@apexinnovations.com",
+      "address": "222 Commerce Blvd, Portland, OR 97201"
+    },
+    {
+      "id": "comp_011",
+      "name": "Bridgewater Technologies",
+      "email": "contact@bridgewater.com",
+      "address": "333 River Road, Minneapolis, MN 55401"
+    },
+    {
+      "id": "comp_012",
+      "name": "Cascade Systems",
+      "email": "info@cascadesys.com",
+      "address": "444 Mountain View Dr, Salt Lake City, UT 84101"
+    },
+    {
+      "id": "comp_013",
+      "name": "Summit Software Solutions",
+      "email": "support@summitsoft.com",
+      "address": "555 Peak Avenue, Phoenix, AZ 85001"
+    },
+    {
+      "id": "comp_014",
+      "name": "Harbor Digital LLC",
+      "email": "contact@harbordigital.com",
+      "address": "666 Harbor Drive, Baltimore, MD 21201"
+    },
+    {
+      "id": "comp_015",
+      "name": "Summit Peak Industries",
+      "email": "info@summitpeak.com",
+      "address": "777 Summit Blvd, Las Vegas, NV 89101"
+    },
+    {
+      "id": "comp_016",
+      "name": "Eagle Eye Technologies",
+      "email": "hello@eagleeye.com",
+      "address": "888 Eagle Road, Nashville, TN 37201"
+    },
+    {
+      "id": "comp_017",
+      "name": "Blue Ridge Solutions",
+      "email": "support@blueridge.com",
+      "address": "999 Blue Ridge Pkwy, Charlotte, NC 28202"
+    },
+    {
+      "id": "comp_018",
+      "name": "Golden Gate Systems",
+      "email": "contact@goldengate.com",
+      "address": "123 Golden Gate Ave, Oakland, CA 94612"
+    },
+    {
+      "id": "comp_019",
+      "name": "Red Rock Digital",
+      "email": "info@redrockdigital.com",
+      "address": "456 Red Rock Canyon, Albuquerque, NM 87102"
+    },
+    {
+      "id": "comp_020",
+      "name": "White Sands Technologies",
+      "email": "support@whitesands.com",
+      "address": "789 White Sands Blvd, El Paso, TX 79901"
+    },
+    {
+      "id": "comp_021",
+      "name": "Black Diamond Corp",
+      "email": "contact@blackdiamond.com",
+      "address": "101 Black Diamond Lane, Tulsa, OK 74103"
+    },
+    {
+      "id": "comp_022",
+      "name": "Silver Creek Solutions",
+      "email": "info@silvercreek.com",
+      "address": "202 Silver Creek Rd, Boise, ID 83702"
+    },
+    {
+      "id": "comp_023",
+      "name": "Copper Mountain Systems",
+      "email": "hello@coppermountain.com",
+      "address": "303 Copper Way, Billings, MT 59101"
+    },
+    {
+      "id": "comp_024",
+      "name": "Iron Gate Industries",
+      "email": "support@irongate.com",
+      "address": "404 Iron Gate Blvd, Cheyenne, WY 82001"
+    },
+    {
+      "id": "comp_025",
+      "name": "Steel City Solutions",
+      "email": "contact@steelcity.com",
+      "address": "505 Steel Plant Rd, Pittsburgh, PA 15222"
+    },
+    {
+      "id": "comp_026",
+      "name": "Ruby Tech Solutions",
+      "email": "info@rubytech.com",
+      "address": "606 Ruby Lane, Philadelphia, PA 19107"
+    },
+    {
+      "id": "comp_027",
+      "name": "Emerald Digital Systems",
+      "email": "support@emeralddigital.com",
+      "address": "707 Emerald Drive, St. Louis, MO 63101"
+    },
+    {
+      "id": "comp_028",
+      "name": "Sapphire Technologies",
+      "email": "contact@sapphiretech.com",
+      "address": "808 Sapphire Ave, Detroit, MI 48226"
+    },
+    {
+      "id": "comp_029",
+      "name": "Diamond Peak Solutions",
+      "email": "hello@diamondpeak.com",
+      "address": "909 Diamond Blvd, Cleveland, OH 44114"
+    },
+    {
+      "id": "comp_030",
+      "name": "Pearl River Technologies",
+      "email": "info@pearlriver.com",
+      "address": "100 Pearl Street, New Orleans, LA 70112"
+    },
+    {
+      "id": "comp_031",
+      "name": "Opal Solutions Group",
+      "email": "support@opalsolutions.com",
+      "address": "111 Opal Way, Miami, FL 33130"
+    },
+    {
+      "id": "comp_032",
+      "name": "Jade Innovations",
+      "email": "contact@jadeinnovations.com",
+      "address": "222 Jade Drive, Houston, TX 77002"
+    },
+    {
+      "id": "comp_033",
+      "name": "Quartz Systems Inc.",
+      "email": "info@quartzsys.com",
+      "address": "333 Quartz Lane, Dallas, TX 75201"
+    },
+    {
+      "id": "comp_034",
+      "name": "Onyx Digital Solutions",
+      "email": "support@onyxdigital.com",
+      "address": "444 Onyx Blvd, San Antonio, TX 78205"
+    },
+    {
+      "id": "comp_035",
+      "name": "Granite Technologies",
+      "email": "contact@granitetech.com",
+      "address": "555 Granite Peak, Oklahoma City, OK 73102"
+    },
+    {
+      "id": "comp_036",
+      "name": "Marble Systems Corp",
+      "email": "info@marblecorp.com",
+      "address": "666 Marble Ave, Wichita, KS 67202"
+    },
+    {
+      "id": "comp_037",
+      "name": "Slate Digital Solutions",
+      "email": "hello@slatedigital.com",
+      "address": "777 Slate Rock Rd, Little Rock, AR 72201"
+    },
+    {
+      "id": "comp_038",
+      "name": "Chalk Mountain Tech",
+      "email": "support@chalkmountain.com",
+      "address": "888 Chalk Way, Jackson, MS 39201"
+    },
+    {
+      "id": "comp_039",
+      "name": "Sandstone Systems",
+      "email": "contact@sandstonesys.com",
+      "address": "999 Sandstone Dr, Birmingham, AL 35203"
+    },
+    {
+      "id": "comp_040",
+      "name": "Limestone Tech Group",
+      "email": "info@limestonetech.com",
+      "address": "123 Limestone Quarry, Lexington, KY 40507"
+    },
+    {
+      "id": "comp_041",
+      "name": "Bedrock Solutions Inc.",
+      "email": "support@bedrocksolutions.com",
+      "address": "456 Bedrock Blvd, Louisville, KY 40202"
+    },
+    {
+      "id": "comp_042",
+      "name": "Summit Ridge Technologies",
+      "email": "contact@summitridge.com",
+      "address": "789 Summit Ridge Rd, Memphis, TN 38103"
+    },
+    {
+      "id": "comp_043",
+      "name": "Valley View Digital",
+      "email": "info@valleyviewdigital.com",
+      "address": "101 Valley View Dr, Richmond, VA 23219"
+    },
+    {
+      "id": "comp_044",
+      "name": "Mountain Peak Systems",
+      "email": "support@mountainpeak.com",
+      "address": "202 Mountain Peak Way, Washington, DC 20001"
+    },
+    {
+      "id": "comp_045",
+      "name": "Ocean View Technologies",
+      "email": "contact@oceanviewtech.com",
+      "address": "303 Ocean Ave, Virginia Beach, VA 23451"
+    },
+    {
+      "id": "comp_046",
+      "name": "Sunset Digital Solutions",
+      "email": "hello@sunsetdigital.com",
+      "address": "404 Sunset Blvd, Raleigh, NC 27601"
+    },
+    {
+      "id": "comp_047",
+      "name": "Dawn Systems Corp",
+      "email": "info@dawnsystems.com",
+      "address": "505 Dawn Lane, Columbia, SC 29201"
+    },
+    {
+      "id": "comp_048",
+      "name": "Midnight Technologies",
+      "email": "support@midnighttech.com",
+      "address": "606 Midnight Way, Orlando, FL 32801"
+    },
+    {
+      "id": "comp_049",
+      "name": "Starlight Solutions",
+      "email": "contact@starlightsolutions.com",
+      "address": "707 Starlight Dr, Tampa, FL 33602"
+    },
+    {
+      "id": "comp_050",
+      "name": "Galaxy Systems Inc.",
+      "email": "info@gexalaxysystems.com",
+      "address": "808 Galaxy Way, Jacksonville, FL 32202"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -1,6 +1,6 @@
 import { TableCell, TableRow } from "@/components/ui/table"
-import { UpdateUserButton } from "./UpdateUserButton"
 import { DeleteUserButton } from "./DeleteUserButton"
+import { UpdateEmployeeButton } from "./UpdateEmployeeButton"
 
 interface DashboardTableRowProps {
   index: number
@@ -42,7 +42,7 @@ export const DashboardTableRow = ({
 
       <TableCell colSpan={2} className="pe-4">
         <div className="flex justify-end gap-2">
-          <UpdateUserButton
+          <UpdateEmployeeButton
             user={{ id, name, email, age, isVerified, lastLoginAt }}
           />
           <DeleteUserButton id={id} name={name} />

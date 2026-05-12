@@ -6,11 +6,13 @@ import type { UserType } from "@/types/dashboard.types"
 interface DashboardTableProps {
   users: UserType[]
   currentPage: number
+  itemsPerPage: number
 }
 
 export const DashboardTableBody = ({
   users,
   currentPage = 1,
+  itemsPerPage,
 }: DashboardTableProps) => {
   return (
     <TableBody>
@@ -19,7 +21,7 @@ export const DashboardTableBody = ({
           <DashboardTableRow
             key={row.id}
             {...row}
-            index={(currentPage - 1) * users.length + index + 1}
+            index={(currentPage - 1) * itemsPerPage + index + 1}
           />
         ))
       ) : (

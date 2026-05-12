@@ -1,6 +1,6 @@
-import { AddUser } from "@/features/dashboard/AddUser"
-import { DashboardTable } from "@/features/dashboard/DashboardTable"
-import { DashboardTableSkeleton } from "@/features/dashboard/DashboardTableSkeleton"
+import { AddEmployee } from "@/features/dashboard/employee/AddEmployeeButton"
+import { DashboardTable } from "@/features/dashboard/employee/DashboardTable"
+import { DashboardTableSkeleton } from "@/features/dashboard/employee/DashboardTableSkeleton"
 import { getUsers } from "@/lib/api"
 import { queryClient } from "@/lib/queryClient"
 import { Suspense } from "react"
@@ -14,18 +14,18 @@ export const loader = async () => {
   return null
 }
 
-export const Dashboard = () => {
+export const Employee = () => {
   // const isFetching = useIsFetching({ queryKey: ["users"] })
   return (
     <>
       <section className="mx-auto flex w-full max-w-[95%] min-w-0 flex-1 flex-col xl:max-w-350">
         <header className="py-4 text-center">
           <h1 className="text-lg font-bold text-primary md:text-2xl">
-            MOCK DASHBOARD
+            Employees
           </h1>
         </header>
         <div className="mx-auto -mt-2 h-0.5 w-1/12 rounded-full bg-accent-foreground/30"></div>
-        <AddUser />
+        <AddEmployee />
 
         <div className="flex-1">
           <Suspense fallback={<DashboardTableSkeleton rows={10} />}>

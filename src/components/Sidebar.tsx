@@ -101,11 +101,11 @@ export const SideBar = () => {
 
           <ul className="mt-4">
             <li>
-              <SidebarLink to="/" label="Dashboard" />
+              <SidebarLink to="/" label="Employees" />
             </li>
 
             <li>
-              <SidebarLink to="/company" label="Company" />
+              <SidebarLink to="/companies" label="Companies" />
             </li>
           </ul>
         </div>

@@ -12,3 +12,18 @@ export interface addUserDTO {
   email: string
   age: number
 }
+
+export interface CompanyType {
+  id: string
+  email: string
+  name: string
+  address: string
+  logo?: string
+}
+
+export interface addCompanyDTO {
+  name: string
+  email: string
+  address: string
+  logo?: string
+}
