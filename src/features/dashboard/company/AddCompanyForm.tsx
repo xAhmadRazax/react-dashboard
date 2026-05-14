@@ -2,14 +2,13 @@ import Form from "@/components/form/Form"
 import { DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { useQueryClient } from "@tanstack/react-query"
 import { useCreateCompanyMutation } from "./hooks/useCreateCompanyMutation"
+import { useFormDialog } from "../hooks/useFormDialog"
 
-interface AddCompanyFormProps {
-  onSuccess: () => void
-}
-
-export const AddCompanyForm = ({ onSuccess }: AddCompanyFormProps) => {
+export const AddCompanyForm = () => {
   const { createCompanyMutation, isLoading: isCreatingCompany } =
     useCreateCompanyMutation()
+
+  const { onSuccess } = useFormDialog()
 
   const queryClient = useQueryClient()
 
@@ -37,7 +36,7 @@ export const AddCompanyForm = ({ onSuccess }: AddCompanyFormProps) => {
             queryKey: ["companies"],
           })
 
-          onSuccess()
+          onSuccess?.()
         },
       }
     )

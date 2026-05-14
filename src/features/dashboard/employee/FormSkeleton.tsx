@@ -5,7 +5,7 @@ interface FormSkeletonProps {
   rows: number
 }
 
-export const FormSkeleton = ({ title, rows }: FormSkeletonProps) => {
+export const EmployeeFormSkeleton = ({ title, rows }: FormSkeletonProps) => {
   return (
     <>
       <DialogHeader className="text-center">

@@ -1,24 +1,24 @@
 import { TableBody, TableCell, TableRow } from "@/components/ui/table"
 
-import { DashboardTableRow } from "./DashboardTableRow"
+import { EmployeeTableRow } from "./EmployeeTableRow"
 import type { UserType } from "@/types/dashboard.types"
 
-interface DashboardTableProps {
-  users: UserType[]
+interface EmployeesTableProps {
+  employees: UserType[]
   currentPage: number
   itemsPerPage: number
 }
 
-export const DashboardTableBody = ({
-  users,
+export const EmployeesTableBody = ({
+  employees,
   currentPage = 1,
   itemsPerPage,
-}: DashboardTableProps) => {
+}: EmployeesTableProps) => {
   return (
     <TableBody>
-      {users.length > 0 ? (
-        users.map((row, index: number) => (
-          <DashboardTableRow
+      {employees.length > 0 ? (
+        employees.map((row, index: number) => (
+          <EmployeeTableRow
             key={row.id}
             {...row}
             index={(currentPage - 1) * itemsPerPage + index + 1}
@@ -27,7 +27,7 @@ export const DashboardTableBody = ({
       ) : (
         <TableRow>
           <TableCell colSpan={6} className="h-32 text-center">
-            <div className="text-muted-foreground">No users found</div>
+            <div className="text-muted-foreground">No employees found</div>
           </TableCell>
         </TableRow>
       )}

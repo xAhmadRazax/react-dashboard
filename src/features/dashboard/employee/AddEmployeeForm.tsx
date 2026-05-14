@@ -1,17 +1,16 @@
 import Form from "@/components/form/Form"
+import { useFormDialog } from "../hooks/useFormDialog"
 import { DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { useCreateUserMutation } from "../hooks/useCreateUserMutation"
+import { useCreateUserMutation } from "./hooks/useCreateUserMutation"
 import { useQueryClient } from "@tanstack/react-query"
 
-interface AddEmployeeFormProps {
-  onSuccess: () => void
-}
-
-export const AddEmployeeForm = ({ onSuccess }: AddEmployeeFormProps) => {
+export const AddEmployeeForm = () => {
   const { createUserMutation, isLoading: isCreatingUser } =
     useCreateUserMutation()
 
   const queryClient = useQueryClient()
+
+  const { onSuccess } = useFormDialog()
 
   const onSubmitHandler = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault()

@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router"
 import { Layout } from "./pages/Layout"
 import { Employee, loader as employeeLoader } from "./pages/Employee.page"
-import { Company } from "./pages/Company.page"
+import { Company, loader as companyLoader } from "./pages/Company.page"
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -15,7 +15,7 @@ export const router = createBrowserRouter([
       {
         path: "/companies",
         element: <Company />,
-        loader: lo,
+        loader: companyLoader,
       },
     ],
   },

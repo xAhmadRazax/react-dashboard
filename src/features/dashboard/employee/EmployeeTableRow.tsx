@@ -2,7 +2,7 @@ import { TableCell, TableRow } from "@/components/ui/table"
 import { DeleteUserButton } from "./DeleteUserButton"
 import { UpdateEmployeeButton } from "./UpdateEmployeeButton"
 
-interface DashboardTableRowProps {
+interface EmployeeTableRowProps {
   index: number
   id: string
   name: string
@@ -12,7 +12,7 @@ interface DashboardTableRowProps {
   lastLoginAt: string
 }
 
-export const DashboardTableRow = ({
+export const EmployeeTableRow = ({
   index,
   id,
   name,
@@ -20,7 +20,7 @@ export const DashboardTableRow = ({
   age,
   isVerified,
   lastLoginAt,
-}: DashboardTableRowProps) => {
+}: EmployeeTableRowProps) => {
   return (
     <TableRow className="transition-colors hover:bg-muted/40">
       <TableCell className="ps-4 font-medium">{index}</TableCell>

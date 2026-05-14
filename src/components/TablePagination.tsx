@@ -16,6 +16,9 @@ interface TablePaginationProps {
   items: number
   currentItems: number
   currentPage: number
+  isFetchingNextPage: boolean
+  isFetchingPrevPage: boolean
+  resourceName: string
 }
 
 export function TablePagination({
@@ -24,6 +27,9 @@ export function TablePagination({
   items,
   currentItems,
   currentPage,
+  isFetchingNextPage,
+  isFetchingPrevPage,
+  resourceName,
 }: TablePaginationProps) {
   const [, setSearchParams] = useSearchParams()
   const queryClient = useQueryClient()
@@ -44,7 +50,7 @@ export function TablePagination({
   const prefetchNextPage = () => {
     if (currentPage < totalPages) {
       queryClient.prefetchQuery({
-        queryKey: ["users", currentPage + 1],
+        queryKey: [resourceName, currentPage + 1],
         queryFn: () => getUsers({ page: currentPage + 1, itemsPerPage: 10 }),
       })
     }
@@ -54,7 +60,7 @@ export function TablePagination({
   const prefetchPreviousPage = () => {
     if (currentPage > 1) {
       queryClient.prefetchQuery({
-        queryKey: ["users", currentPage - 1],
+        queryKey: [resourceName, currentPage - 1],
         queryFn: () => getUsers({ page: currentPage - 1, itemsPerPage: 10 }),
       })
     }
@@ -79,7 +85,7 @@ export function TablePagination({
               onFocus={prefetchPreviousPage} // ← Add for keyboard
               onTouchStart={prefetchPreviousPage} // ← Add for mobile
               className={
-                currentPage === 1 || isLoading
+                currentPage === 1 || isLoading || isFetchingPrevPage
                   ? "pointer-events-none opacity-50"
                   : ""
               }
@@ -95,7 +101,7 @@ export function TablePagination({
               onFocus={prefetchPreviousPage} // ← Add for keyboard
               onTouchStart={prefetchPreviousPage} // ← Add for mobile
               className={
-                currentPage === totalPages || isLoading
+                currentPage === totalPages || isLoading || isFetchingNextPage
                   ? "pointer-events-none opacity-50"
                   : ""
               }

@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button"
 import { useQueryClient } from "@tanstack/react-query"
 import type { UserType } from "@/types/dashboard.types"
 import { useSearchParams } from "react-router"
-import { useDeleteUserMutation } from "../hooks/useDeleteUserMutation"
+import { useDeleteUserMutation } from "./hooks/useDeleteUserMutation"
 
 interface DeleteUserButtonProps {
   id: string

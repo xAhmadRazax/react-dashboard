@@ -1,6 +1,6 @@
 import Form from "@/components/form/Form"
 import { DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { useUpdateUserMutation } from "../hooks/useUpdateUserMutation"
+import { useUpdateUserMutation } from "./hooks/useUpdateUserMutation"
 import { useQueryClient } from "@tanstack/react-query"
 import type { UserType } from "@/types/dashboard.types"
 import { useSearchParams } from "react-router"

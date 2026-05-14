@@ -1,16 +1,17 @@
-import { AddEmployee } from "@/features/dashboard/employee/AddEmployeeButton"
-import { DashboardTable } from "@/features/dashboard/employee/DashboardTable"
-import { DashboardTableSkeleton } from "@/features/dashboard/employee/DashboardTableSkeleton"
-import { getUsers } from "@/lib/api"
-import { queryClient } from "@/lib/queryClient"
+import { AddEmployeeButton } from "@/features/dashboard/employee/AddEmployeeButton"
+import { EmployeesTable } from "@/features/dashboard/employee/EmployeesTable"
+import { EmployeesTableSkeleton } from "@/features/dashboard/employee/EmployeesTableSkeleton"
+// import { getUsers } from "@/lib/api"
+// import { queryClient } from "@/lib/queryClient"
 import { Suspense } from "react"
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const loader = async () => {
-  await queryClient.prefetchQuery({
-    queryKey: ["users", 1],
-    queryFn: () => getUsers(),
-  })
+  // for some reason call prefetchQuery makes the component loading longer?
+  // await queryClient.prefetchQuery({
+  //   queryKey: ["users", 1],
+  //   queryFn: () => getUsers(),
+  // })
   return null
 }
 
@@ -25,11 +26,11 @@ export const Employee = () => {
           </h1>
         </header>
         <div className="mx-auto -mt-2 h-0.5 w-1/12 rounded-full bg-accent-foreground/30"></div>
-        <AddEmployee />
+        <AddEmployeeButton />
 
         <div className="flex-1">
-          <Suspense fallback={<DashboardTableSkeleton rows={10} />}>
-            <DashboardTable />
+          <Suspense fallback={<EmployeesTableSkeleton rows={10} />}>
+            <EmployeesTable />
           </Suspense>
         </div>
       </section>

@@ -1,38 +1,25 @@
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
-import { useState } from "react"
-import { useNavigate } from "react-router"
 import { Button } from "@/components/ui/button"
+import FormDialog from "../components/createFormDialog"
 import { Plus } from "lucide-react"
 import { AddCompanyForm } from "./AddCompanyForm"
-// import { AddEmployeeForm } from "./AddEmployeeForm"
 
-export const AddCompany = () => {
-  const [open, setOpen] = useState(false)
-  const navigate = useNavigate()
-
-  const onSuccess = () => {
-    setOpen(false)
-    navigate("/")
-  }
+export const AddCompanyButton = () => {
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
-      <div className="flex justify-end xl:me-8">
-        <DialogTrigger
-          render={
-            <Button
-              variant="default" // ✅ Use theme color
-              size="sm" // ✅ Match other buttons
-              className="mb-4 gap-1.5"
-            />
-          }
+    <FormDialog>
+      <FormDialog.Trigger>
+        <Button
+          variant="default" // ✅ Use theme color
+          size="sm" // ✅ Match other buttons
+          className="mb-4 gap-1.5"
         >
           <Plus className="size-3.5" />
           Add Company
-        </DialogTrigger>
-      </div>
-      <DialogContent className="px-6 text-foreground/80">
-        <AddCompanyForm onSuccess={onSuccess} />
-      </DialogContent>
-    </Dialog>
+        </Button>
+      </FormDialog.Trigger>
+
+      <FormDialog.Content>
+        <AddCompanyForm />
+      </FormDialog.Content>
+    </FormDialog>
   )
 }

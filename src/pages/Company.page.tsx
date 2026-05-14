@@ -1,16 +1,16 @@
-import { AddCompany } from "@/features/dashboard/company/AddCompanyButton"
-import { CompanyTable } from "@/features/dashboard/company/CompanyTable"
-import { DashboardTableSkeleton } from "@/features/dashboard/employee/DashboardTableSkeleton"
-import { getCompanies } from "@/lib/api"
-import { queryClient } from "@/lib/queryClient"
+import { AddCompanyButton } from "@/features/dashboard/company/AddCompanyButton"
+import { CompaniesTable } from "@/features/dashboard/company/CompaniesTable"
+import { CompaniesTableSkeleton } from "@/features/dashboard/company/CompaniesTableSkeleton"
+// import { getCompanies } from "@/lib/api"
+// import { queryClient } from "@/lib/queryClient"
 import { Suspense } from "react"
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const loader = async () => {
-  await queryClient.prefetchQuery({
-    queryKey: ["companies", 1],
-    queryFn: () => getCompanies(),
-  })
+  // await queryClient.prefetchQuery({
+  //   queryKey: ["companies", 1],
+  //   queryFn: () => getCompanies(),
+  // })
   return null
 }
 
@@ -25,11 +25,11 @@ export const Company = () => {
           </h1>
         </header>
         <div className="mx-auto -mt-2 h-0.5 w-1/12 rounded-full bg-accent-foreground/30"></div>
-        <AddCompany />
+        <AddCompanyButton />
 
         <div className="flex-1">
-          <Suspense fallback={<DashboardTableSkeleton rows={10} />}>
-            <CompanyTable />
+          <Suspense fallback={<CompaniesTableSkeleton rows={10} />}>
+            <CompaniesTable />
           </Suspense>
         </div>
       </section>

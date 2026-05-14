@@ -4,19 +4,20 @@ import { useQueryClient } from "@tanstack/react-query"
 import type { CompanyType } from "@/types/dashboard.types"
 import { useSearchParams } from "react-router"
 import { useUpdateCompanyMutation } from "./hooks/useUpdateCompany"
+import { useFormDialog } from "../hooks/useFormDialog"
 
 interface UpdateCompanyFormProps {
   company: CompanyType
   companyId: string
-  onSuccess: () => void
 }
 
 export const UpdateCompanyForm = ({
-  onSuccess,
   companyId,
   company,
 }: UpdateCompanyFormProps) => {
   const queryClient = useQueryClient()
+
+  const { onSuccess } = useFormDialog()
 
   const [searchParams] = useSearchParams()
 

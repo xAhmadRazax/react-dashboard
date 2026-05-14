@@ -1,10 +1,7 @@
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import type { CompanyType } from "@/types/dashboard.types"
 import { UpdateCompanyForm } from "./UpdateCompanyForm"
-// import { useQueryClient } from "@tanstack/react-query"
-// import { getUser } from "@/lib/api"
+import FormDialog from "../components/createFormDialog"
 
 interface UpdateCompanyButtonProps {
   company: CompanyType
@@ -13,8 +10,6 @@ interface UpdateCompanyButtonProps {
 export const UpdateCompanyButton = ({ company }: UpdateCompanyButtonProps) => {
   // const queryClient = useQueryClient()
 
-  const [open, setOpen] = useState(false)
-
   // const prefetchUserData = () => {
   //   queryClient.prefetchQuery({
   //     queryKey: ["users", user.id],
@@ -22,35 +17,23 @@ export const UpdateCompanyButton = ({ company }: UpdateCompanyButtonProps) => {
   //   })
   // }
 
-  const onSuccess = () => {
-    console.log("User updated successfully")
-    setOpen(false)
-  }
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
-      <div className="flex justify-end">
-        <DialogTrigger
-          render={
-            <Button
-              // onMouseEnter={prefetchUserData}
-              // onFocus={prefetchUserData} // ← Add for keyboard
-              // onTouchStart={prefetchUserData} // ← Add for mobile
-              variant="secondary"
-              className="bg-secondary-foreground/10 hover:bg-secondary-foreground/20"
-              size="sm"
-            />
-          }
+    <FormDialog>
+      <FormDialog.Trigger>
+        <Button
+          // onMouseEnter={prefetchUserData}
+          // onFocus={prefetchUserData} // ← Add for keyboard
+          // onTouchStart={prefetchUserData} // ← Add for mobile
+          variant="secondary"
+          className="bg-secondary-foreground/10 hover:bg-secondary-foreground/20"
+          size="sm"
         >
           Update
-        </DialogTrigger>
-      </div>
-      <DialogContent className="px-6 text-foreground/80">
-        <UpdateCompanyForm
-          company={company}
-          companyId={company.id}
-          onSuccess={onSuccess}
-        />
-      </DialogContent>
-    </Dialog>
+        </Button>
+      </FormDialog.Trigger>
+      <FormDialog.Content>
+        / <UpdateCompanyForm company={company} companyId={company.id} />
+      </FormDialog.Content>
+    </FormDialog>
   )
 }

@@ -1,6 +1,6 @@
 import { TableCell, TableRow } from "@/components/ui/table"
-import { DeleteCompanyButton } from "./deleteCompanyButton"
 import { UpdateCompanyButton } from "./UpdateCompanyButton"
+import { DeleteCompanyButton } from "./DeleteCompanyButton"
 
 interface CompanyTableRowProps {
   index: number
